@@ -4,10 +4,14 @@
 <!--meta http-equiv="refresh" content="0;URL='http://3df.com.ar/slqq/wrapper/'" /-->
 <script src='jquery-3.3.1.js'></script>
 <script>
+function onDeviceReady() {
+  $("#wst").text("READY");
+}
+
 $(document).ready(function(){
   
-  
-  
+  document.addEventListener("deviceready", onDeviceReady, false);
+
 });
 
 function a() {  
@@ -30,6 +34,7 @@ function b() {
 </head>
 <body>
 <h2>Pruebas de concepto</h2><hr>
+<span>Status:&nbsp;</span><span id=wst>NOT READY</span><br><br><br>
 <button onclick='a();'>LLAMAR A mreb</button>&nbsp;<span id=aans></span><br><br>
 <button onclick='b();'>AJAX contra slqq/ws</button>&nbsp;<span id=bans></span><br><br>
 
