@@ -10,12 +10,16 @@ $(document).ready(function(){
   
 });
 
-function a() { window.location='http://3df.com.ar/slqq/wrapper/'; }
+function a() {  
+  $("#aans").text("Invocando...");
+  window.location='http://3df.com.ar/slqq/wrapper/';
+}
 
 function b() {
+  $("#bans").text("Invocando...");
   $.ajax({
        type: "GET",  
-       url: "3df.com.ar/slqq/ws/1.php",
+       url: "http://3df.com.ar/slqq/ws/1.php",
        //data: '',
        success: function(s){ $("#bans").text('Respuesta=['+s+']'); },
        error: function(XMLHttpRequest, textStatus, errorThrown) { $('#bans').text('Status=['+textStatus+'], Error=['+errorThrown+']');
@@ -26,7 +30,7 @@ function b() {
 </head>
 <body>
 <h2>Pruebas de concepto</h2><hr>
-<button onclick='a();'>LLAMAR A mreb</button><br><br>
+<button onclick='a();'>LLAMAR A mreb</button>&nbsp;<span id=aans></span><br><br>
 <button onclick='b();'>AJAX contra slqq/ws</button>&nbsp;<span id=bans></span><br><br>
 
 </body>
