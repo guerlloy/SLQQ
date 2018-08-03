@@ -37,20 +37,11 @@ function c() {
 }
 
 function d() {
-if ("Notification" in window) {
-  Notification.requestPermission(function (permission) {
-    if (permission === "granted") {
-      var notification = new Notification("SLQQ", {
-           tag: "Nuevo mensaje de SLQQ", 
-           body: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " 
-      }); 
-      notification.onshow  = function() { $("#dans").text("show"); };
-      notification.onclose = function() { $("#dans").text("close"); };
-      notification.onclick = function() { $("#dans").text("click"); };
-    }
-  });
-} else $('#dans').text("No notificacion in window");
-  
+cordova.plugins.notification.local.schedule({
+    title: 'Notificacion SLQQ',
+    text: 'Nunca os habeis preguntado por que una vaca engorda comiendo pasto (os recuerdo que las vacas pueden pesar 700 kilos) pero nosotros no engordamos comiendo lechuga?',
+    foreground: true
+});  
 }
 </script>
 </head>
