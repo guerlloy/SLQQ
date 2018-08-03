@@ -37,8 +37,9 @@ function c() {
 }
 
 function d() {
-cordova.plugins.notification.local.hasPermission(function(granted) { $().text("granted=["+granted+"]"); });  
-cordova.plugins.notification.local.requestPermission(function(granted) { $().text("granted=["+granted+"]"); });  
+$("#dans").text("Existe? "+(cordova.plugins.notification.local?"SI":"NO"));
+cordova.plugins.notification.local.hasPermission(function(granted) { $("#dans").text("granted=["+granted+"]"); });  
+cordova.plugins.notification.local.requestPermission(function(granted) { $("#dans").text("granted=["+granted+"]"); });  
 
 cordova.plugins.notification.local.schedule({
     title: 'Notificacion SLQQ',
