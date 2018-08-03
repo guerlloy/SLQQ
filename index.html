@@ -37,16 +37,26 @@ function c() {
 }
 
 function d() {
-$("#dans").text("Existe? "+(cordova.plugins.notification.local?"SI":"NO"));
-cordova.plugins.notification.local.hasPermission(function(granted) { $("#dans").text("granted=["+granted+"]"); });  
-cordova.plugins.notification.local.requestPermission(function(granted) { $("#dans").text("granted=["+granted+"]"); });  
-
-cordova.plugins.notification.local.schedule({
-    title: 'Notificacion SLQQ',
-    text: 'Nunca os habeis preguntado por que una vaca engorda comiendo pasto (os recuerdo que las vacas pueden pesar 700 kilos) pero nosotros no engordamos comiendo lechuga?',
-    foreground: true
-});  
+  cordova.plugin.notification.local.hasPermission(function (granted) {
+    if( granted === false ) {
+      cordova.plugin.notification.local.registerPermission(function (granted) {
+        if( granted === true ) {
+          d();
+        } else {
+          alert("We need permission to show you notifications");
+        }
+      });
+    } else {
+      cordova.plugin.notification.local.schedule({
+          id: 9,
+          title: "Test notification SQLL",
+          text: "This is a test notification",
+          at: new Date( new Date().getTime() + 10 )
+      });
+    }
+  });
 }
+  
 
 function e() {
   eval($("#jst").val());
@@ -60,7 +70,7 @@ function e() {
 <button onclick='b();'>AJAX contra slqq/ws</button>&nbsp;<span id=bans></span><br><br>
 <button onclick='c();'>Vibracion</button>&nbsp;<span id=cans></span><br><br>
 <button onclick='d();'>Notificacion</button>&nbsp;<span id=dans></span><br><br>
-<button onclick='e();'>EVAL</button><br><TEXTAREA rows=5 cols=80 id=jst></TEXTAREA><br><br>
+<button onclick='e();'>EVAL</button>&nbsp;<span id=eans>#eans</span><br><TEXTAREA rows=5 cols=80 id=jst></TEXTAREA><br><br>
 
 </body>
 </html>
