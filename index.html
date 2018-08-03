@@ -33,7 +33,24 @@ function b() {
 }
 
 function c() {
-  navigator.vibrate(3000);
+  navigator.vibrate(500);
+}
+
+function d() {
+if ("Notification" in window) {
+  Notification.requestPermission(function (permission) {
+    if (permission === "granted") {
+      var notification = new Notification("SLQQ", {
+           tag: "Nuevo mensaje de SLQQ", 
+           body: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " 
+      }); 
+      notification.onshow  = function() { $("#dans").text("show"); };
+      notification.onclose = function() { $("#dans").text("close"); };
+      notification.onclick = function() { $("#dans").text("click"); };
+    }
+  });
+}
+  
 }
 </script>
 </head>
@@ -43,6 +60,7 @@ function c() {
 <button onclick='a();'>LLAMAR A mreb</button>&nbsp;<span id=aans></span><br><br>
 <button onclick='b();'>AJAX contra slqq/ws</button>&nbsp;<span id=bans></span><br><br>
 <button onclick='c();'>Vibracion</button>&nbsp;<span id=cans></span><br><br>
+<button onclick='d();'>Notificacion</button>&nbsp;<span id=dans></span><br><br>
 
 </body>
 </html>
