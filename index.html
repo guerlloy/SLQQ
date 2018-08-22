@@ -8,10 +8,15 @@
 function onDeviceReady() {
   $("#wst").text("READY");
 }
+  
+function onBackButton() {
+  $("#wst").text("READY BACKBUTTON");
+}
 
 $(document).ready(function(){
   $("#wst").text("NOT READY");
   document.addEventListener("deviceready", onDeviceReady, false);
+  document.addEventListener("backbutton", onBackButton, false);
 
 });
 
