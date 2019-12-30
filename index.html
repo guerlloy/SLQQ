@@ -66,6 +66,16 @@ function d() {
 function e() {
   eval($("#jst").val());
 }
+  
+function f1() { window.plugins.sim.hasReadPermission(f1a,f1a); }
+function f1a(s) { $("#f1ans").text(s); }
+
+function f2() { window.plugins.sim.requestReadPermission(f2a,f2a); }
+function f2a(s) { $("#f2ans").text(s); }
+
+function f3() { window.plugins.sim.getSimInfo(f3a,f3a); }
+function f3a(s) { $("#f3ans").text(s); }
+
 </script>
 </head>
 <body>
@@ -75,6 +85,9 @@ function e() {
 <button onclick='b();'>AJAX contra slqq/ws</button>&nbsp;<span id=bans></span><br><br>
 <button onclick='c();'>Vibracion</button>&nbsp;<span id=cans></span><br><br>
 <button onclick='d();'>Notificacion</button>&nbsp;<span id=dans></span><br><br>
+<button onclick='f1();'>SIM CH-PERM</button>&nbsp;<span id=f1ans></span><br><br>
+<button onclick='f2();'>SIM REQ-PERM</button>&nbsp;<span id=f2ans></span><br><br>
+<button onclick='f3();'>SIM INFO</button>&nbsp;<span id=f3ans></span><br><br>
 <button onclick='e();'>EVAL</button>&nbsp;<span id=eans>#eans</span><br><TEXTAREA rows=5 cols=80 id=jst></TEXTAREA><br><br>
 
 </body>
